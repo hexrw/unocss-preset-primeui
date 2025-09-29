@@ -1,39 +1,57 @@
 {
-  "name": "unocss-plugin-primeui",
-  "description": "A super-modern UnoCSS plugin for PrimeVue. Single-file, zero-dependency, with full CI/CD and auto-publishing.",
-  "version": "0.1.0",
-  "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    }
-  },
-  "files": ["dist"],
-  "scripts": {
-    "build": "bun run clean && bun tsc && bun run minify",
-    "clean": "rm -rf dist",
-    "minify": "bunx terser dist/index.js -o dist/index.js --compress --mangle",
-    "lint": "bunx eslint src --ext .ts",
-    "prepare": "bun run build"
-  },
-  "peerDependencies": {
-    "unocss": ">=0.60.0"
-  },
-  "devDependencies": {
-    "typescript": "^5.3.3",
-    "@types/node": "^20.11.30",
-    "eslint": "^8.56.0",
-    "terser": "^5.30.3",
-    "unocss": "^0.60.0"
-  },
-  "keywords": ["unocss", "primevue", "plugin", "preset", "css", "utility"],
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
-  "author": "",
-  "license": "MIT"
+    "name": "unocss-preset-primeui",
+    "description": "A super-modern UnoCSS plugin for PrimeVue. Single-file, zero-dependency, with full CI/CD and auto-publishing.",
+    "version": "0.1.0",
+    "type": "module",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/index.js",
+            "types": "./dist/index.d.ts"
+        }
+    },
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "bun run clean && bun tsc && bun run minify",
+        "clean": "rm -rf dist",
+        "minify": "bunx terser dist/index.js -o dist/index.js --compress --mangle",
+        "lint": "bunx eslint src --ext .ts",
+        "prepare": "bun run build",
+        "test": "vitest run"
+    },
+    "peerDependencies": {
+        "unocss": ">=0.60.0",
+        "primevue": ">=4.0.0"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.36.0",
+        "@types/node": "^20.11.30",
+        "@typescript-eslint/eslint-plugin": "^7.5.0",
+        "@typescript-eslint/parser": "^7.5.0",
+        "eslint": "^9.36.0",
+        "terser": "^5.30.3",
+        "typescript": "^5.9.2",
+        "typescript-eslint": "^8.45.0",
+        "unocss": "^0.60.0",
+        "vitest": "^1.4.0",
+        "@vitest/coverage-v8": "^1.4.0"
+    },
+    "keywords": [
+        "unocss",
+        "preset",
+        "plugin",
+        "volt",
+        "primevue",
+        "primeui",
+        "tailwind"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git"
+    },
+    "author": "Petr Kolonicz <github.com/hexrw>",
+    "license": "MIT"
 }

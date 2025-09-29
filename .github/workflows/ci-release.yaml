@@ -45,7 +45,7 @@ jobs:
         uses: google-github-actions/release-please-action@v4
         with:
           release-type: node
-          package-name: unocss-plugin-primeui
+          package-name: unocss-preset-primeui
           pull-request-title-pattern: 'chore${scope}: release${component} ${version}'
           changelog-types: '[{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"chore","section":"Chores","hidden":false},{"type":"docs","section":"Documentation","hidden":false},{"type":"refactor","section":"Refactoring","hidden":false}]'
           token: ${{ secrets.GITHUB_TOKEN }}

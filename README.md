@@ -1,4 +1,4 @@
-# unocss-plugin-primeui
+# unocss-preset-primeui
 
 A super-modern, single-file UnoCSS plugin for PrimeVue. Instantly adds PrimeVue-specific variants and rules to UnoCSS, enabling seamless integration with PrimeVue's data attributes and design tokens.
 
@@ -12,16 +12,16 @@ A super-modern, single-file UnoCSS plugin for PrimeVue. Instantly adds PrimeVue-
 ## Installation
 
 ```sh
-bun add unocss-plugin-primeui
+bun add unocss-preset-primeui
 # or
-npm install unocss-plugin-primeui
+npm install unocss-preset-primeui
 ```
 
 ## Usage
 
 ```ts
 // uno.config.ts
-import { presetPrimeUI } from 'unocss-plugin-primeui'
+import { presetPrimeUI } from 'unocss-preset-primeui'
 import { defineConfig } from 'unocss'
 
 export default defineConfig({

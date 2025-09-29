@@ -1,5 +1,4 @@
-import { definePreset, type Preset, type PresetOptions, type Variant } from "unocss"
-import { type Theme } from "unocss/preset-mini"
+import { definePreset, type PresetOptions, type Variant } from "unocss"
 
 const variantMap = {
     "p-invalid": `[data-p~="invalid"]`,
@@ -86,28 +85,18 @@ const variantMap = {
     "p-frozen": `[data-p~="frozen"],[data-p-frozen="true"],[data-p-frozen-column="true"]`,
 }
 
+
 const primeVariants: Variant[] = Object.entries(variantMap).map(([name, selectors]) => {
     return (matcher) => {
-        if (!matcher.startsWith(`${name}:`)) return matcher
-
+        if (!matcher.startsWith(`${name}:`)) return undefined
         return {
-            matcher: matcher.slice(name.length + 1), // +1 for ":"
-            // selector: s => selectors.split(",").map(selector => `${s}:${selector}`).join(", "),
-            handle(input, next) {
-                const selector = selectors
-                    .split(",")
-                    .map((selector) => `${selector}${input.selector}`)
-                    .join(",")
-                return next({
-                    ...input,
-                    selector,
-                })
-            },
+            matcher: matcher.slice(name.length + 1),
+            selector: (s) => selectors.split(",").map(sel => `${sel}${s}`).join(","),
         }
     }
 })
 
-export const presetPrimeUI = definePreset((_options?: PresetOptions): Preset<Theme> => {
+export const presetPrimeUI = definePreset((_options?: PresetOptions) => {
     return {
         name: "preset-primeui",
         variants: [...primeVariants],
