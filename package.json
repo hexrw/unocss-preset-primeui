@@ -54,5 +54,8 @@
     },
     "readme": "https://github.com/hexrw/unocss-preset-primeui/blob/main/README.md",
     "author": "Petr Kolonicz <github.com/hexrw>",
-    "license": "MIT"
-} 
+    "license": "MIT",
+    "dependencies": {
+        "jiti": "^2.6.0"
+    }
+}
