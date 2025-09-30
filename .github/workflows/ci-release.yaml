@@ -72,7 +72,7 @@ jobs:
         uses: google-github-actions/release-please-action@v4
         with:
           release-type: node
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
       - name: Create tarball
         if: steps.release.outputs.release_created == 'true'
         run: |
