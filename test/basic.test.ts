@@ -6,9 +6,8 @@ import { createGenerator, presetAttributify, presetUno, presetMini } from 'unocs
 describe('presetPrimeUI', () => {
   it('should generate PrimeVue variants (with presetUno and presetMini)', async () => {
     const uno = createGenerator({ presets: [presetUno(), presetMini(), presetAttributify(), presetPrimeUI()] })
-    const { css } = await uno.generate('<div class="p-invalid:bg-red-500"></div>')
-    expect(css).toContain('[data-p~="invalid"]')
-    expect(css).toContain('background-color')
+    const { css } = await uno.generate('<div class="p-invalid:text-color"></div>')
+  expect(css).toContain('[data-p~="invalid"].p-invalid:text-color{color:var(--p-text-color);}')
   })
 
   // TODO: Volt/PrimeVue integration test

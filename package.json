@@ -1,6 +1,6 @@
 {
     "name": "unocss-preset-primeui",
-    "description": "A super-modern UnoCSS plugin for PrimeVue. Single-file, zero-dependency, with full CI/CD and auto-publishing.",
+    "description": "UnoCSS preset that adds support for PrimeUI's Volt/PrimeVue Tailwind.",
     "version": "0.1.0",
     "type": "module",
     "main": "dist/index.js",
@@ -50,8 +50,9 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git"
+        "url": "git+https://github.com/hexrw/unocss-preset-primeui.git"
     },
+    "readme": "https://github.com/hexrw/unocss-preset-primeui/blob/main/README.md",
     "author": "Petr Kolonicz <github.com/hexrw>",
     "license": "MIT"
-}
+} 
