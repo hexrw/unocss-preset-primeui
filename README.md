@@ -58,5 +58,15 @@ export default defineConfig({
 - All releases, changelogs, and npm publishing are fully automated from `main` via GitHub Actions
 - Versioning and changelog powered by [release-please](https://github.com/googleapis/release-please)
 
+### Publishing to npm
+
+To enable automatic publishing to npm, you must add an `NPM_TOKEN` secret to your repository:
+
+1. Create a new npm access token ([npm docs](https://docs.npmjs.com/creating-and-viewing-access-tokens))
+2. Go to your GitHub repository → Settings → Secrets and variables → Actions
+3. Add a new secret named `NPM_TOKEN` with your npm token value
+
+Without this, the publish step will fail and your package will not appear on npm.
+
 ## License
 MIT

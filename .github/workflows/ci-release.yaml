@@ -73,10 +73,9 @@ jobs:
         with:
           release-type: node
           token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Create tarball
+      - name: Pack tarball with Bun
         if: steps.release.outputs.release_created == 'true'
-        run: |
-          tar -czvf unocss-preset-primeui-${{ steps.release.outputs.tag_name }}.tgz dist package.json README.md LICENSE
+        run: bun pm pack --out package.tgz
       - name: Create GitHub Release with tarball
         if: steps.release.outputs.release_created == 'true'
         uses: softprops/action-gh-release@v2
@@ -84,16 +83,25 @@ jobs:
           tag_name: ${{ steps.release.outputs.tag_name }}
           name: Release ${{ steps.release.outputs.tag_name }}
           body: ${{ steps.release.outputs.changelog }}
-          files: unocss-preset-primeui-${{ steps.release.outputs.tag_name }}.tgz
+          files: package.tgz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Check for NPM_TOKEN
+        if: steps.release.outputs.release_created == 'true'
+        run: |
+          if [ -z "${NPM_TOKEN}" ]; then
+            echo "::error::NPM_TOKEN secret is not set. Please add it to your repository secrets to enable npm publishing."
+            exit 1
+          fi
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Publish to npm (with Bun)
         if: steps.release.outputs.release_created == 'true'
         run: |
           if [[ "${{ steps.release.outputs.tag_name }}" == *-* ]]; then
-            bun publish --tag beta --access public
+            bun publish --tag beta --access public package.tgz
           else
-            bun publish --access public
+            bun publish --access public package.tgz
           fi
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
