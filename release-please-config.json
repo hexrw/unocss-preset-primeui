@@ -7,7 +7,8 @@
       "extra-files": ["README.md"],
       "prerelease": true,
       "prerelease-type": "beta",
-      "changelog-path": "CHANGELOG.md"
+      "changelog-path": "CHANGELOG.md",
+      "initial-version": "0.1.0-beta.0"
     }
   }
 }
