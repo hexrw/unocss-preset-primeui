@@ -83,6 +83,7 @@ jobs:
           tag_name: ${{ steps.release.outputs.tag_name }}
           name: Release ${{ steps.release.outputs.tag_name }}
           body: ${{ steps.release.outputs.changelog }}
+          prerelease: true
           files: package.tgz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

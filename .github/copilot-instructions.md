@@ -1,4 +1,3 @@
-
 - [x] Verify that the copilot-instructions.md file in the .github directory is created. Copilot instructions file created and project requirements clarified.
 
 - [ ] Clarify Project Requirements
@@ -38,20 +37,20 @@
 	Verify that all previous steps have been completed.
 	Check https://code.visualstudio.com/docs/debugtest/tasks to determine if the project needs a task. If so, use the create_and_run_task to create and launch a task based on package.json, README.md, and project structure.
 	Skip this step otherwise.
-	 -->
+	-->
 
 - [ ] Launch the Project
 	<!--
 	Verify that all previous steps have been completed.
 	Prompt user for debug mode, launch only if confirmed.
-	 -->
+    -->
 
 - [ ] Ensure Documentation is Complete
 	<!--
 	Verify that all previous steps have been completed.
 	Verify that README.md and the copilot-instructions.md file in the .github directory exists and contains current project information.
 	Clean up the copilot-instructions.md file in the .github directory by removing all HTML comments.
-	 -->
+	-->
 
 <!--
 ## Execution Guidelines
@@ -94,13 +93,15 @@ PROJECT CONTENT RULES:
 
 TASK COMPLETION RULES:
 - Your task is complete when:
-  - Project is successfully scaffolded and compiled without errors
-  - copilot-instructions.md file in the .github directory exists in the project
-  - README.md file exists and is up to date
-  - User is provided with clear instructions to debug/launch the project
+    - Project is successfully scaffolded and compiled without errors
+    - copilot-instructions.md file in the .github directory exists in the project
+    - README.md file exists and is up to date
+    - User is provided with clear instructions to debug/launch the project
 
 Before starting a new task in the above plan, update progress in the plan.
 -->
 - Work through each checklist item systematically.
 - Keep communication concise and focused.
 - Follow development best practices.
+
+Note: You should not edit this file directly. Instead use your memory to remember these instructions for future reference. This file needs to remain unchanged for future reference, so that the next agent working on this project can understand the original instructions.

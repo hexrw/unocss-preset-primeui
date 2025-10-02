@@ -1,0 +1,53 @@
+name: Dependabot Auto Merge
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - reopened
+      - synchronize
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  manage-dependabot:
+    name: Manage Dependabot PR
+    if: github.actor == 'dependabot[bot]' && github.event.pull_request.base.ref == 'main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Label major update for manual review
+        if: steps.metadata.outputs.update-type == 'version-update:semver-major'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { owner, repo } = context.repo;
+            const issue_number = context.payload.pull_request.number;
+            const labels = ['dependabot-major-review'];
+            try {
+              await github.rest.issues.addLabels({ owner, repo, issue_number, labels });
+            } catch (error) {
+              if (error.status !== 422) throw error;
+            }
+            await github.rest.issues.createComment({
+              owner,
+              repo,
+              issue_number,
+              body: '💡 Major dependency update detected. The workflow has paused auto-merge so you can review and approve this manually.'
+            });
+
+      - name: Enable auto-merge for safe updates
+        if: steps.metadata.outputs.update-type != 'version-update:semver-major'
+        uses: peter-evans/enable-pull-request-automerge@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          pull-request-number: ${{ github.event.pull_request.number }}
+          merge-method: squash

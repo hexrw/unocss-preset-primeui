@@ -27,6 +27,9 @@ A super-modern, single-file UnoCSS plugin for PrimeVue. Instantly adds PrimeVue-
 - **PrimeVue design token rules** (e.g. `border-surface`, `bg-emphasis`)
 - **Ultra-simple build & release powered by Bun**
 - **Automatic versioning, changelog, and npm publish via GitHub Actions (release-please)**
+- **Hands-free dependency care with Dependabot auto-merging safe updates**
+
+> **Status:** Public beta (`0.x`) while the API solidifies. Expect rapid iteration and semver-breaking updates until the first stable release.
 
 ## Installation
 
@@ -57,6 +60,7 @@ export default defineConfig({
 ## Releasing
 - All releases, changelogs, and npm publishing are fully automated from `main` via GitHub Actions
 - Versioning and changelog powered by [release-please](https://github.com/googleapis/release-please)
+- All npm publishes use the `beta` dist-tag until the project graduates from the `0.x` beta series
 
 ### Publishing to npm
 
@@ -67,6 +71,11 @@ To enable automatic publishing to npm, you must add an `NPM_TOKEN` secret to you
 3. Add a new secret named `NPM_TOKEN` with your npm token value
 
 Without this, the publish step will fail and your package will not appear on npm.
+
+## Automated maintenance
+- Dependabot opens weekly dependency PRs, auto-merging all passing patch and minor updates after the PR Checks workflow succeeds.
+- Major (breaking) upgrades are still proposed automatically but require a manual review before merging; the workflow labels these PRs with `dependabot-major-review` for quick triage.
+- Every merged dependency update flows through release-please, creating a beta patch release once changes land on `main`.
 
 ## License
 MIT
