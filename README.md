@@ -29,14 +29,14 @@ A super-modern, single-file UnoCSS plugin for PrimeVue. Instantly adds PrimeVue-
 - **Automatic versioning, changelog, and npm publish via GitHub Actions (release-please)**
 - **Hands-free dependency care with Dependabot auto-merging safe updates**
 
-> **Status:** Public beta (`0.x`) while the API solidifies. Expect rapid iteration and semver-breaking updates until the first stable release.
+> **Status:** Public beta (`1.1.0-beta.x` series) while the API solidifies. Expect rapid iteration and semver-breaking updates until the first stable release. Install with the `@beta` dist-tag until 1.0.0 ships.
 
 ## Installation
 
 ```sh
-bun add unocss-preset-primeui
+bun add unocss-preset-primeui@beta
 # or
-npm install unocss-preset-primeui
+npm install unocss-preset-primeui@beta
 ```
 
 ## Usage

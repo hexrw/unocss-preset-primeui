@@ -4,11 +4,12 @@
   "packages": {
     ".": {
       "release-type": "node",
+      "versioning-strategy": "prerelease",
       "extra-files": ["README.md"],
       "prerelease": true,
       "prerelease-type": "beta",
       "changelog-path": "CHANGELOG.md",
-      "initial-version": "0.1.0-beta.0",
+      "initial-version": "1.1.0-beta.0",
       "tag-template": "unocss-preset-primeui-v${version}"
     }
   }
