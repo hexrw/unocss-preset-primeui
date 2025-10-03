@@ -9,8 +9,7 @@
       "prerelease-type": "beta",
       "changelog-path": "CHANGELOG.md",
       "initial-version": "0.1.0-beta.0",
-      "tag-template": "unocss-preset-primeui-v${version}",
-      "release-as": "0.1.0-beta.0"
+      "tag-template": "unocss-preset-primeui-v${version}"
     }
   }
 }
