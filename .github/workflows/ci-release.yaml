@@ -75,7 +75,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Pack tarball with Bun
         if: steps.release.outputs.release_created == 'true'
-        run: bun pm pack --out package.tgz
+        run: bun pm pack --filename package.tgz
       - name: Create GitHub Release with tarball
         if: steps.release.outputs.release_created == 'true'
         uses: softprops/action-gh-release@v2
