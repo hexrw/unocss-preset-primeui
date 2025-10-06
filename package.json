@@ -1,7 +1,7 @@
 {
     "name": "unocss-preset-primeui",
     "description": "UnoCSS preset that adds support for PrimeUI's Volt/PrimeVue Tailwind.",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "type": "module",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
