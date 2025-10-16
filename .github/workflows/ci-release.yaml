@@ -99,16 +99,16 @@ jobs:
       - name: Setup npm authentication
         if: steps.release.outputs.release_created == 'true'
         run: |
-          echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > ~/.npmrc
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Publish to npm (with Bun)
+      - name: Publish to npm
         if: steps.release.outputs.release_created == 'true'
         run: |
           if [[ "${{ steps.release.outputs.tag_name }}" == *-* ]]; then
-            bun publish --tag beta --access public
+            npm publish --tag beta --access public
           else
-            bun publish --access public
+            npm publish --access public
           fi
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
