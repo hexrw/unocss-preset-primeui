@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.1](https://github.com/hexrw/unocss-preset-primeui/compare/v1.1.0...v1.1.1) (2026-02-17)
+
+
+### Bug Fixes
+
+* use --filename option for bun pm pack to generate package.tgz ([4c836d3](https://github.com/hexrw/unocss-preset-primeui/commit/4c836d32222a80ffd2a4253d598b57674099e90f))
+* use correct bun pm pack option to generate package.tgz ([#6](https://github.com/hexrw/unocss-preset-primeui/issues/6)) ([346a286](https://github.com/hexrw/unocss-preset-primeui/commit/346a2862e349017ccaef59eec0e1bea6a435fb8d))
+
 ## [1.1.0](https://github.com/hexrw/unocss-preset-primeui/compare/v1.0.0...v1.1.0) (2025-10-03)
 
 
